@@ -52,7 +52,13 @@ module.exports = function(socketio) {
       if (data && data.rut) {
         rutInfo.getFullName(data.rut)
           .then(function(resp) {
-            socket.emit('rut info resp', {rut:data.rut, name:resp});
+            var splitName = resp.split(' '),
+                name = {
+                  name: splitName[2] + ' ' + splitName[3],
+                  pname: splitName[0],
+                  mname: splitName[1]
+            };
+            socket.emit('rut info resp', {rut:data.rut, name:name});
             socket.log("Rut Info Emited.", resp);
           }).catch(function(err) {
             //socket.emitError('Response Error', err);

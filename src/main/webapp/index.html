@@ -21,40 +21,10 @@
       </div>
       <div class="row">
         <div class="col-md-4">
-          <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active"><a href="#">Buscar x RUT</a></li>
-            <li role="presentation"><a href="#">Buscar x Nombre</a></li>
-            <li role="presentation"><a href="#">Validar Documento</a></li>
+          <ul class="nav nav-pills nav-stacked side-navbar">
           </ul>
         </div>
-        <div class="col-md-8">
-          <div class="row errorPanel">
-            <div class="col-md-12">
-              <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close alertClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Warning!</strong> <span class="errorTextPanel"></span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <h3>Buscar x RUT</h3>
-              <form name="rutInfo">
-                <input type="text" placeholder="Escribe aqui..." name="inputRut" class="form-control inputRut" />
-              </form>
-              <hr />
-              <div class="panel panel-default resultPanel">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Datos Encontrados</h3>
-                </div>
-                <ul class="list-group">
-                  <li class="list-group-item list-group-item-default"><strong>RUT:</strong> <span class="rut text-success pull-right"></span></li>
-                  <li class="list-group-item list-group-item-default"><strong>Nombre:</strong> <span class="name text-success pull-right"></span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="col-md-8 page-content"></div>
       </div>
     </div>
 
@@ -63,5 +33,6 @@
     <script src="/socket.io-client/socket.io.js"></script>
     <script src="/rutjs/dist/rut.min.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/pages/findByRut.js"></script>
   </body>
 </html>
