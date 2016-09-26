@@ -1,0 +1,32 @@
+{
+  "name": "rutificador",
+  "description": "POC - Permite mostrar info de un RUT o NOMBRE de una persona o empresa.",
+  "main": "index.js",
+  "authors": [
+    "Tomás Tapia Silva <ttapia@kaisanetwork.net> (https://github.com/tomtapia)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "rut",
+    "nombre",
+    "completo",
+    "rutificador",
+    "chile",
+    "run"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "socket.io-client": "^1.4.8",
+    "jquery": "^3.1.1",
+    "rutjs": "^0.1.1",
+    "bootstrap": "^3.3.7"
+  }
+}
