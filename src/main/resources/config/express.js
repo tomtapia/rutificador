@@ -12,7 +12,7 @@ var express = require('express'),
 
 
 module.exports = function(app) {
-  var env = app.get('env');
+  var env = app.get('env') || config.env;
 
   app.use(morgan(config.logLevel));
 
