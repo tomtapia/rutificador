@@ -4,7 +4,8 @@
   "description": "POC - Permite mostrar info de un RUT o NOMBRE de una persona o empresa.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "setup": "npm install && bower install"
   },
   "keywords": [
     "rut",
