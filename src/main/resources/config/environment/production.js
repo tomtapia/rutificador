@@ -4,14 +4,10 @@
 // =================================
 module.exports = {
   // Server IP
-  ip: process.env.OPENSHIFT_NODEJS_IP
-    || process.env.ip
-    || undefined,
+  ip: process.env.ip || undefined,
 
   // Server port
-  port: process.env.OPENSHIFT_NODEJS_PORT
-    || process.env.PORT
-    || 3000,
+  port: process.env.PORT || 5000,
 
   logLevel: 'combined'
 };

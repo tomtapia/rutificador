@@ -1,6 +1,17 @@
 $(function() {
   var socket = io('/rutificador');
 
+  function onClick(event) {
+    event.preventDefault();
+    routes[this.dataset.page].load();
+    routes.forEach(function(element, index, array) {
+      element.active = false;
+      element.jqElement.removeClass('active');
+    });
+    routes[this.dataset.page].active = true;
+    routes[this.dataset.page].jqElement.addClass('active');
+  }
+
   var routes = [
     {
       load: function() {
@@ -11,7 +22,8 @@ $(function() {
         });
       },
       active: true,
-      text: 'Buscar x RUT'
+      text: 'Buscar x RUT',
+      jqElement: null
     },
     {
       load: function() {
@@ -19,7 +31,8 @@ $(function() {
         $('.page-content').html('<p>Comming soon.</p>');
       },
       active: false,
-      text: 'Buscar x Nombre'
+      text: 'Buscar x Nombre',
+      jqElement: null
     },
     {
       load: function() {
@@ -27,7 +40,8 @@ $(function() {
         $('.page-content').html('<p>Comming soon.</p>');
       },
       active: false,
-      text: 'Validar Documento'
+      text: 'Validar Documento',
+      jqElement: null
     }
   ];
 
@@ -37,14 +51,12 @@ $(function() {
         aLink = $('<a href="#"></a>').first();
     aLink.attr('data-page', page);
     aLink.text(routes[page].text);
-    aLink.on('click', function(event) {
-      event.preventDefault();
-      routes[event.target.dataset.page].load();
-    });
+    aLink.on('click', onClick);
     if(routes[page].active) {
       aLink.addClass('active');
       routes[page].load();
     }
+    routes[page].jqElement = aLink;
     list.append(aLink);
     uList.append(list);
   }

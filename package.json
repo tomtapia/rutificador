@@ -1,10 +1,10 @@
 {
   "name": "rutificador",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "POC - Permite mostrar info de un RUT o NOMBRE de una persona o empresa.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [
     "rut",
@@ -15,6 +15,10 @@
     "run"
   ],
   "author": "Tomás Tapia Silva <ttapia@kaisanetwork.net> (https://github.com/tomtapia)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomtapia/rutificador"
+  },
   "license": "MIT",
   "dependencies": {
     "ejs": "^2.5.2",

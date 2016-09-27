@@ -47,7 +47,7 @@ var fundByRutController = function(socket) {
     var rut = new Rut($inputRut.val());
     $errorPanel.hide();
     $resultPanel.hide();
-    if ( rut.isValid ) {
+    if (rut.isValid) {
       console.log('Inpuit RUT: ' + rut.getNiceRut());
       socket.emit('rut info', {rut:rut.getNiceRut(false)});
     } else {
