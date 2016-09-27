@@ -1,0 +1,25 @@
+{
+  "name": "rutificador",
+  "description": "Permite mostrar info de un RUT o NOMBRE de una persona o empresa.",
+  "scripts": {
+    "postdeploy": "npm setup"
+  },
+  "env": {
+    "NODE_ENV": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
