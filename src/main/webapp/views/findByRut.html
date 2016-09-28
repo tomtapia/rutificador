@@ -10,7 +10,9 @@
   <div class="col-md-12">
     <h3>Buscar x RUT</h3>
     <form name="rutInfo">
-      <input type="text" placeholder="Escribe aqui..." name="inputRut" class="form-control inputRut" />
+      <div class="form-group">
+        <input type="text" placeholder="Formato RUT: 111111111, 11111111-1, 11.111.111-1" name="inputRut" class="form-control inputRut" />
+      </div>
     </form>
     <hr />
     <div class="panel panel-default resultPanel">
@@ -22,6 +24,7 @@
         <li class="list-group-item list-group-item-default"><strong>Nombre:</strong> <span class="name text-success pull-right"></span></li>
         <li class="list-group-item list-group-item-default"><strong>Apellido Paterno:</strong> <span class="pname text-success pull-right"></span></li>
         <li class="list-group-item list-group-item-default"><strong>Apellido Materno:</strong> <span class="mname text-success pull-right"></span></li>
+        <li class="list-group-item list-group-item-default"><strong>Estado Cédula:</strong> <span class="status text-success pull-right"></span></li>
       </ul>
     </div>
   </div>

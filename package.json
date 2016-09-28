@@ -23,14 +23,16 @@
   "license": "MIT",
   "dependencies": {
     "bower": "^1.7.9",
+    "cheerio": "^0.22.0",
+    "debug": "^2.2.0",
     "ejs": "^2.5.2",
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
-    "info-rut": "^2.0.3",
     "lodash": "^4.16.1",
     "morgan": "^1.7.0",
+    "node-env-file": "^0.1.8",
     "path": "^0.12.7",
-    "rut-status": "^2.0.0",
+    "request-promise": "^4.1.1",
     "rutjs": "^0.1.1",
     "socket.io": "^1.4.8",
     "uuid": "^2.0.3"

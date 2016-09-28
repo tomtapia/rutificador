@@ -4,15 +4,16 @@
 'use strict';
 
 const rutjs = require('rutjs'),
-      rutInfo = require('info-rut'),
-      rutStatus = require('rut-status'),
-      uuid = require('uuid');
+      rutInfo = require('../../js/utils/rut-info'),
+      rutStatus = require('../../js/utils/rut-status'),
+      uuid = require('uuid'),
+      debug = require('debug')('app:socket');
 
 module.exports = function(socketio) {
   var nspRut = socketio.of('/rutificador');
 
   nspRut.on('error', function(err) {
-    console.log('CatchError A:', err);
+    console.error;('CatchError A:', err);
   });
 
   nspRut.on('connection', function(socket) {
@@ -21,7 +22,7 @@ module.exports = function(socketio) {
 
     socket.log = function(message, data, logType) {
       logType = typeof logType !== 'undefined' ? logType : 'log';
-      console[logType](`SocketIO ${socket.nsp.name} [${socket.address}] - ${message}`, JSON.stringify(data, null, 2));
+      debug(`${socket.nsp.name} [${socket.address}] - ${message}`, '\n' + JSON.stringify(data, null, 2));
     };
 
     socket.emitError = function(message, data) {
@@ -30,7 +31,7 @@ module.exports = function(socketio) {
     };
 
     socket.on('error', function(err, next) {
-      console.log('CatchError B:', err);
+      socket.log('CatchError B:', err, 'error');
       next();
     });
 
@@ -47,7 +48,6 @@ module.exports = function(socketio) {
     });
 
     socket.on('rut info', function(data) {
-      console.log("Socket ID:", socket.id);
       socket.log("Rut Info Requested.", data);
       if (data && data.rut) {
         rutInfo.getFullName(data.rut)
@@ -61,8 +61,23 @@ module.exports = function(socketio) {
             socket.emit('rut info resp', {rut:data.rut, name:name});
             socket.log("Rut Info Emited.", resp);
           }).catch(function(err) {
-            //socket.emitError('Response Error', err);
-            socket.emit('throw error', {code: 500, message: 'Response Error', data: err});
+            socket.emitError('Rut Info Response With Error', err.message);
+          });
+      } else {
+        socket.emitError('Data is not valid', data);
+      }
+    });
+
+    socket.on('rut status', function(data) {
+      socket.log("Rut Status Requested.", data);
+      if (data && data.rut) {
+        rutStatus({rut: data.rut,type: 'CEDULA',serial: ''})
+          .then(function(resp) {
+            socket.emit('rut status resp', {rut:data.rut, status:resp});
+            socket.log("Rut Status Emited.", resp);
+          })
+          .catch(function(err) {
+            socket.emitError('Rut Status Response With Error', err.message);
           });
       } else {
         socket.emitError('Data is not valid', data);
