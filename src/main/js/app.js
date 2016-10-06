@@ -13,6 +13,7 @@ var app = express(),
     server = http.createServer(app),
     socketio = require('socket.io')(server);
 
+require('../resources/config/raven');
 require('../resources/config/socketio')(socketio);
 require('../resources/config/express')(app);
 require('./routes')(app);

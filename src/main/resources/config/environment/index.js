@@ -28,10 +28,17 @@ var all = {
 
   // Secret for session, you will want to change this and make it an environment variable
   secrets: {
-    session: 'qwerty1234556'
+    session: ''
   },
 
-  logLevel: 'dev'
+  // Morgan Log Level
+  logLevel: '',
+
+  // Sentry configuration enviroment
+  SENTRY_DSN: '',
+  SENTRY_NAME: '',
+  SENTRY_RELEASE: '',
+  SENTRY_ENVIRONMENT: ''
 };
 
 // Export the config object based on the NODE_ENV

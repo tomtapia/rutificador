@@ -8,7 +8,8 @@ var express = require('express'),
     config = require('./environment'),
     path = require('path'),
     errorHandler = require('errorhandler'),
-    morgan = require('morgan');
+    morgan = require('morgan'),
+    raven = require('./raven').rvm;
 
 
 module.exports = function(app) {
@@ -31,5 +32,8 @@ module.exports = function(app) {
 
   if(env === 'development' || env === 'test') {
     app.use(errorHandler()); // Error handler - has to be last
+  } else {
+    app.use(raven.middleware.express.requestHandler(config.SENTRY_DSN));
+    app.use(raven.middleware.express.errorHandler(config.SENTRY_DSN));
   }
 }
