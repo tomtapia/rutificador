@@ -19,7 +19,7 @@ function LoggerPrinter(type, client) {
   };
   this._printError = function(err) {
     if(this.type === "prod") {
-      console.error("Sending error to raven:", message);
+      console.error("Sending error to raven:", err);
       this.client.captureException(err);
     } else {
       this.client(err);
