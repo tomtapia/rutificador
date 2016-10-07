@@ -55,9 +55,9 @@ module.exports = function(socketio) {
             .then(function(resp) {
               var splitName = resp.split(' '),
                   name = {
-                    name: splitName[2] + ' ' + splitName[3],
-                    pname: splitName[0],
-                    mname: splitName[1]
+                    name: (((splitName[2] === undefined) ? '' : splitName[2]) + ' ' + ((splitName[3] === undefined) ? '' : splitName[3])).trim(),
+                    pname: ((splitName[0] === undefined) ? '' : splitName[0]),
+                    mname: ((splitName[1] === undefined) ? '' : splitName[1])
               };
               socket.emit('rut info resp', {rut:data.rut, name:name});
               socket.log("Rut Info Emited.", resp);
