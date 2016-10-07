@@ -15,12 +15,11 @@ function LoggerPrinter(type, client) {
       this._printError(message);
     } else if (message instanceof String || typeof message == "string") {
       this._printString(message);
-    } else {
-      console.log(message);
-    }
+    } else {}
   };
   this._printError = function(err) {
     if(this.type === "prod") {
+      console.error("Sending error to raven:", message);
       this.client.captureException(err);
     } else {
       this.client(err);
@@ -28,6 +27,7 @@ function LoggerPrinter(type, client) {
   };
   this._printString = function(message) {
     if(this.type === "prod") {
+      console.log("Sending message to raven:", message);
       this.client.captureMessage(message);
     } else {
       this.client(message);
