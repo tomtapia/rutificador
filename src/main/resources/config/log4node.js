@@ -1,7 +1,6 @@
 /**
  * Log4Node configuration
  */
-
 'use strict';
 
 var envConfig = require('./environment'),
@@ -42,7 +41,7 @@ function Logger(config) {
     this._printer = new LoggerPrinter("dev", debug(this._loggerName));
   } else {
     raven.client.setTagsContext({ loggerName: this._loggerName });
-    this._printer = new LoggerPrinter("dev", raven.client);
+    this._printer = new LoggerPrinter("prod", raven.client);
   }
   this.error = function(message) {
     this._printMessage("Error", message);

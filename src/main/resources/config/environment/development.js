@@ -1,7 +1,8 @@
+/**
+ * Development specific configuration
+ */
 'use strict';
 
-// Development specific configuration
-// ==================================
 module.exports = {
   // Morgan Log Level
   logLevel: 'dev',

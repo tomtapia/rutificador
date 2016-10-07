@@ -1,3 +1,6 @@
+/**
+ * All configurations will extend these options
+ */
 'use strict';
 
 var path = require('path');
@@ -12,8 +15,6 @@ function requiredProcessEnv(name) {
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-// All configurations will extend these options
-// ============================================
 var all = {
   env: env,
 

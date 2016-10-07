@@ -1,3 +1,6 @@
+/**
+ * Shared specific configuration
+ */
 'use strict';
 
 exports = module.exports = {

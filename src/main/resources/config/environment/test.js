@@ -1,5 +1,6 @@
+/**
+ * Test specific configuration
+ */
 'use strict';
 
-// Test specific configuration
-// ===========================
 module.exports = {};
