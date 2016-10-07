@@ -1,6 +1,6 @@
 {
   "name": "rutificador",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "POC - Permite mostrar info de un RUT o NOMBRE de una persona o empresa.",
   "main": "index.js",
   "scripts": {
