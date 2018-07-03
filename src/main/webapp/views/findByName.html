@@ -1,0 +1,46 @@
+<div class="row errorPanel">
+  <div class="col-md-12">
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close alertClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Advertencia!</strong> <span class="errorTextPanel"></span>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Buscar x Nombre</h3>
+    <form name="rutInfo">
+      <div class="form-group">
+        <input type="text" placeholder="ejemplo Nombre: Juan+P%C3%A9rez, Humberto Gonzalez" name="inputRut" class="form-control inputRut" />
+      </div>
+    </form>
+    <hr />
+    <div class="panel panel-default resultPanel">
+      <div class="panel-heading">
+        <h3 class="panel-title">Personas Encontradas</h3>
+      </div>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <td>
+              <strong>RUT:</strong>
+            </td>
+            <td>
+              <strong>Nombre:</strong>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="rut text-success pull-right"></span>
+            </td>
+            <td>
+              <span class="name text-success pull-right"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

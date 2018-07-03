@@ -19,6 +19,11 @@ module.exports = function(app) {
       resp.sendFile(path.resolve(app.get('appPath') + '/views/findByRut.html'));
     }
   );
+  app.route('/p/findByName')
+    .get(function(req, resp) {
+      resp.sendFile(path.resolve(app.get('appPath') + '/views/findByName.html'));
+    }
+  );
   app.route('/*')
     .get(function(req, resp) {
       resp.sendFile(path.resolve(app.get('appPath') + '/index.html'));

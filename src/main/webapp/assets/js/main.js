@@ -27,8 +27,11 @@ $(function() {
     },
     {
       load: function() {
-        // ToDo: Comming soon.
-        $('.page-content').html('<p>Comming soon.</p>');
+        $('.page-content').html('');
+        $.get('/p/findByName', function( data ) {
+          $('.page-content').html(data);
+          fundByNameController(socket);
+        });
       },
       active: false,
       text: 'Buscar x Nombre',
