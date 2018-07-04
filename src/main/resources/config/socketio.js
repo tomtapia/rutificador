@@ -3,8 +3,7 @@
  */
 'use strict';
 
-const rutjs = require('rutjs'),
-      rutInfo = require('../../js/utils/rut-info'),
+const rutInfo = require('../../js/utils/rut-info'),
       rutStatus = require('../../js/utils/rut-status'),
       uuid = require('uuid'),
       logger = require('./log4node')({name:'app:socket'});
@@ -65,7 +64,8 @@ module.exports = function(socketio) {
               socket.emitError('Rut Info Response With Error', err.message);
             });
           } catch (err) {
-            rvmClient.captureException(err);
+            console.error(err);
+            //rvmClient.captureException(err);
           }
       } else {
         socket.emitError('Data is not valid', data);
@@ -85,11 +85,12 @@ module.exports = function(socketio) {
               socket.emitError('Rut Status Response With Error', err.message);
             });
         } catch (err) {
-          rvmClient.captureException(err);
+          console.error(err);
+          //rvmClient.captureException(err);
         }
       } else {
         socket.emitError('Data is not valid', data);
       }
     });
   });
-}
+};

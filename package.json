@@ -1,12 +1,12 @@
 {
   "name": "rutificador",
   "version": "0.0.3",
-  "description": "POC - Permite mostrar info de un RUT o NOMBRE de una persona o empresa.",
+  "description": "PoC - Permite mostrar info de un RUT o NOMBRE de una persona o empresa.",
   "main": "index.js",
   "scripts": {
     "start": "npm run setup && node index.js",
-    "setup": "npm install && yarn install",
-    "test": "jshint src/"
+    "setup": "yarn install",
+    "test": "jshint --config .jshintrc-node src/main/js && jshint --config .jshintrc-node src/main/resources && jshint --config .jshintrc-web src/main/webapp"
   },
   "keywords": [
     "rut",
@@ -22,7 +22,7 @@
   "dependencies": {
     "bootstrap": "3.3.7",
     "cheerio": "^0.22.0",
-    "debug": "^2.2.0",
+    "debug": "^3.1.0",
     "ejs": "^2.5.2",
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
@@ -32,13 +32,12 @@
     "morgan": "^1.7.0",
     "node-env-file": "^0.1.8",
     "path": "^0.12.7",
-    "raven": "^0.12.1",
     "request": "^2.75.0",
     "request-promise": "^4.1.1",
     "rutjs": "^0.1.1",
-    "socket.io": "^1.4.8",
+    "socket.io": "^2.1.1",
     "socket.io-client": "^2.1.1",
-    "uuid": "^2.0.3"
+    "uuid": "^3.3.2"
   },
   "private": true
 }

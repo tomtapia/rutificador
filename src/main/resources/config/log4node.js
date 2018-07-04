@@ -4,7 +4,6 @@
 'use strict';
 
 var envConfig = require('./environment'),
-    raven = require('./raven'),
     debug = require('debug');
 
 function LoggerPrinter(type, client) {
@@ -13,14 +12,14 @@ function LoggerPrinter(type, client) {
   this.print = function(message) {
     if(message instanceof Error) {
       this._printError(message);
-    } else if (message instanceof String || typeof message == "string") {
+    } else if (message instanceof String || typeof message === "string") {
       this._printString(message);
-    } else {}
+    }
   };
   this._printError = function(err) {
     if(this.type === "prod") {
       console.error("Sending error to raven:", err);
-      this.client.captureException(err);
+      this.client.error(err);
     } else {
       this.client(err);
     }
@@ -28,7 +27,7 @@ function LoggerPrinter(type, client) {
   this._printString = function(message) {
     if(this.type === "prod") {
       console.log("Sending message to raven:", message);
-      this.client.captureMessage(message);
+      this.client.log(message);
     } else {
       this.client(message);
     }
@@ -40,8 +39,9 @@ function Logger(config) {
   if(envConfig.env === 'development' || envConfig.env === 'test') {
     this._printer = new LoggerPrinter("dev", debug(this._loggerName));
   } else {
-    raven.client.setTagsContext({ loggerName: this._loggerName });
-    this._printer = new LoggerPrinter("prod", raven.client);
+    //raven.client.setTagsContext({ loggerName: this._loggerName });
+    //this._printer = new LoggerPrinter("prod", raven.client);
+    this._printer = new LoggerPrinter("prod", console);
   }
   this.error = function(message) {
     this._printMessage("Error", message);

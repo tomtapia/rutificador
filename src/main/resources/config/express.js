@@ -40,4 +40,4 @@ module.exports = function(app) {
   } catch(err) {
     logger.error(err);
   }
-}
+};

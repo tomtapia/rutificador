@@ -10,8 +10,7 @@
 
 var cheerio = require('cheerio'),
     rp = require('request-promise'),
-    Rut = require('rutjs'),
-    debug = require('debug')('app:rutStatus');
+    Rut = require('rutjs');
 
 var getFullName = function(data) {
   var _rut = new Rut(data);
@@ -23,7 +22,7 @@ var getFullName = function(data) {
   };
   return rp(options).then(function($) {
     var fullName = $('h1:contains(Nombre)').next().text();
-    if (fullName === '') throw new Error('Not found full name');
+    if (fullName === '') { throw new Error('Not found full name'); }
     return fullName.split(', Buscas')[0];
   });
 };
@@ -35,7 +34,7 @@ var getRut = function(name) {
   };
   var rpap = rp.defaults({jar: true});
   return rpap(options)
-    .then(function($) { $('input[name=csrfmiddlewaretoken]').val() })
+    .then(function($) { $('input[name=csrfmiddlewaretoken]').val(); })
     .then(function(csrf) {
       var options = {
         method: 'POST',
